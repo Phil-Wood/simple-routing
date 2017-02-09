@@ -32,7 +32,3 @@ Routing::setError404(function(){
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* [Peter](https://css-tricks.com/snippets/php/get-current-page-url/#comment-1604248)
