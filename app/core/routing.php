@@ -26,9 +26,9 @@ class Routing
     /**
      * Current method of set route
      * 
-     * @var array $pathArray
+     * @var $routeMethod
      */
-    protected static $routeMethod = array();
+    protected static $routeMethod;
 
 
 
