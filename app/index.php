@@ -3,42 +3,22 @@
 require "../vendor/autoload.php";
 
 use App\Core\Routing;
-
+use App\Core\Url;
 
 Routing::setError404(function(){
-	echo "Not Found";
+    echo "Not Found";
 });
 
-Routing::set('/', function(){
-	echo "hello /";
+Routing::get('/', function(){
+    echo "GET home";
 });
 
-Routing::set('/boom', function(){
-	echo "hello boom";
+Routing::post('/', function(){
+    echo "POST home";
 });
 
+Routing::delete('/delete', function(){
+    echo "DELETE /delete";
+});
 
 Routing::match();
-
-/*
-use App\Core\Url;
-use App\Core\Helper;
-
-$url 		= new Url();
-
-$full_url 	= $url->getUrl();
-$url_parts	= $url->getUrlArray();
-$scheme 	= $url->getScheme();
-$host 		= $url->getHost();
-$paths 		= $url->getPaths();
-$query 		= $url->getQuery();
-
-$helper 	= Helper::Instance();
-
-$helper::raw($full_url);
-$helper::raw($url_parts);
-$helper::raw($scheme);
-$helper::raw($host);
-$helper::raw($paths);
-$helper::raw($query);
-*/
