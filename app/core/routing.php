@@ -5,13 +5,13 @@ use App\Core\Url;
 
 class Routing
 {
-
     /**
      * An array of all set routes
      * 
      * @var array $routes
      */
     protected static $routes = array();
+
 
 
     /**
@@ -22,12 +22,14 @@ class Routing
     protected static $pathArray = array();
 
 
+
     /**
      * Current method of set route
      * 
      * @var array $pathArray
      */
     protected static $routeMethod = array();
+
 
 
     /**
@@ -38,12 +40,14 @@ class Routing
     protected static $url;
 
 
+
     /**
      * The http request method
      * 
      * @var $requestMethod
      */
     protected static $requestMethod;
+
 
 
     /**
@@ -62,11 +66,13 @@ class Routing
     protected static $foundMatch;
 
 
+
     /**
      * The key of the matched route
      * @var int
      */
     protected static $matchedKey;
+
 
 
     /**
@@ -78,6 +84,7 @@ class Routing
     {
         self::$error404 = $callBack;
     }
+
 
 
     /**
@@ -107,6 +114,7 @@ class Routing
     }
 
 
+
     /**
      * HTTP method POST
      * Set a route and associate a callback
@@ -120,6 +128,35 @@ class Routing
     }
 
 
+
+    /**
+     * HTTP method PUT
+     * Set a route and associate a callback
+     * 
+     * @param string $path
+     * @param callable $callback
+     */
+    public static function put(string $path, callable $callBack)
+    {
+        self::storeRoute('PUT', $path, $callBack);
+    }
+
+
+
+    /**
+     * HTTP method PATCH
+     * Set a route and associate a callback
+     * 
+     * @param string $path
+     * @param callable $callback
+     */
+    public static function patch(string $path, callable $callBack)
+    {
+        self::storeRoute('PATCH', $path, $callBack);
+    }
+
+
+
     /**
      * HTTP method DELETE
      * Set a route and associate a callback
@@ -131,6 +168,7 @@ class Routing
     {
         self::storeRoute('DELETE', $path, $callBack);
     }
+
 
 
     /**
@@ -182,14 +220,6 @@ class Routing
     public static function match()
     {
         self::sortRoutes();
-
-        /*
-        echo '<pre>';
-        print_r(self::$routes);
-        echo '</pre>';
-        */
-       
-       echo '<pre>'; print_r(self::$url->getPaths()); echo '</pre>';
 
         foreach (self::$routes as $key => $route) {
             if ($route['path'] === self::$url->getPaths() &&
