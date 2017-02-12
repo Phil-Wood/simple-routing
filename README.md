@@ -13,15 +13,25 @@ PHP 7.1
 ## Usage
 
 ```php
-Routing::set('/', function(){
-	echo "hello /";
+
+Routing::get('/', function(){
+    echo "GET home";
 });
+
+Routing::post('/', function(){
+    echo "POST home";
+});
+
+Routing::delete('/delete', function(){
+    echo "DELETE /delete";
+});
+
 Routing::match();
 ```
 Set a custom error404 callback
 ```php
 Routing::setError404(function(){
-	echo "Not Found";
+    echo "Not Found";
 });
 ```
 
